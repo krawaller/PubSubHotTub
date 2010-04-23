@@ -3,7 +3,7 @@
 
 Since there seem to be an unwritten law that every PubSub broker should have a lame name, we went for PubSubHotTub. Catchy, ey?
 
-So why another pubsub broker in town? Well, being focused on functional-meta-thingy-fun mobile programming we felt the need for a lightweight pubsub broker with wildcard support. Since we did not find any such project, we built one - based upon marcuswestin's excellent and super simple PubSubBroker. The result was PubSubHotTub, which currently weighs in on 624 bytes minified and gzipped - now that's lightweight! 
+So why another pubsub broker in town? Well, being focused on functional-meta-thingy-fun mobile programming we felt the need for a lightweight pubsub broker with wildcard support. Since we did not find any such project, we built one - based upon [marcuswestin](http://github.com/marcuswestin)'s excellent and super simple [PubSubBroker](http://github.com/marcuswestin/js-snippets/blob/master/Publisher.js). The result was PubSubHotTub, which currently weighs in on 624 bytes minified and gzipped - now that's lightweight! 
 
 Caveat: this is an early release of PubSubHotTub, so please bear with us as it grows up to be all it can be. No, really - it's completely untested (apart from the test suite, that is).
 
