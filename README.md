@@ -13,7 +13,7 @@ PubSubHotTub normally lives in the `pb` object. However, if it finds jQuery and/
 
 ### Subscribe
 
-`pb.sub(channel, func, curry...);` or `pb.sub(channel, obj, method, curry...);` returns handle used when unsubscribing.
+`pb.sub(channel, func, curry...);` or `pb.sub(channel, obj, method, curry...);` returns a handle used when unsubscribing.
 
 convenient method for run-once-subscriptions:
 `pb.oneSub(channel, func, curry...);` or `pb.oneSub(channel, obj, method, curry...);`
@@ -34,15 +34,15 @@ convenient method for run-once-subscriptions:
 
 ### Examples:
 
-    var func = function(){ console.log(Array.prototype.slice.call(arguments)); };
+    var func = function(){ console.log(Array.prototype.slice.call(arguments).join(" ")); };
     
     pb.sub('/root/leaf/meatloaf', func, 'i', 'like', 'curry');
     pb.pub('/root/leaf/meatloaf', 'and', 'cheese'); // => i like curry and cheese
     
     pb.sub('/*/leaf/*', func);
-    pb.pub('/root/leaf/*', 'cheese'); // => cheese, i like curry cheese ^^
+    pb.pub('/root/leaf/*', 'cheese'); // => cheese, i like curry cheese ^^ (curry cheese sounds rad)
     
-    pb.sub('/cheese/**/', func);
+    pb.sub('/cheese/**', func);
     pb.pub('/cheese/doodles/rocks', 'yeah'); // => yeah
     
     pb.oneSub('/sausage', func);
@@ -60,6 +60,9 @@ convenient method for run-once-subscriptions:
     };
     pb.sub('/gnu', obj, 'method');
     pb.pub('/gnu'); // => 42
+    
+    pb.sub('/**', func, 'logger');
+    pb.pub('/some/random/func' 'can see dead people'); // => logger can see dead people
 
 ## License 
 
