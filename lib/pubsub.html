@@ -5,60 +5,7 @@
         <title>pubsub</title>
     </head>
     <body>
-        hej
-        <script type="text/javascript" src="../../underscore/underscore.js">
-        </script>
-        <script type="text/javascript" src="pubsub.hottub.js">
-        </script>
-        <!--script type="text/javascript">
-            console.time('me');
-            var i = 0;
-            pb.sub("/*/*", function(){ i++; });
-            pb.sub("/*/*/c", { test: function(a){ i++; } }, 'test', 1);
-            pb.sub("/a/**", function(){ i++; });
-            pb.sub("/**", function(){ i++; });
-            var h = pb.sub("/**", function(){ i++; });
-
-            pb.oneSub("/a/*/c", function(){ i++; });
-            for (var j = 0; j < 1000; j++) {
-                pb.pub("/*/b/*", '/*/b/*');
-                //_.pub("/a/b/c", '/a/b/c');
-            }
-            console.timeEnd('me');
-            console.log(i);
-        </script-->
-        <script type="text/javascript">
-            pb.signaly = false
-            pb.purgeSubs()
-            args = false
-            calls = 0
-            fn = function(){
-                calls++;
-                args = [calls].concat(Array.prototype.slice.call(arguments))
-            };
-            
-            fne = function(ans, sub, signal){
-                calls++;
-                args = calls;
-                console.log(signal, ans, sub);
-                if (ans == 0) {
-                    throw "Bad match: " + signal
-                }
-            };
-            
-            pb.signaly = true;
-            
-            pb.sub('/a', fne, 1, '/a')
-            pb.sub('/a/b', fne, 1, '/a/b')
-            pb.sub('/a/b/*', fne, 1, '/a/b/*')
-            pb.sub('/a/b/*/d', fne, 1, '/a/b/*/d')
-            pb.sub('/*/*/*', fne, 1, '/*/*/*')
-            pb.sub('/**', fne, 1, '/**')
-            pb.sub('/a/**', fne, 1, '/a/**')
-            
-            pb.sub('foo', fne, 0, 'foo')
-            
-            pb.pub('/**')
-        </script>
+        <script type="text/javascript" src="../../underscore/underscore.js"></script>
+        <script type="text/javascript" src="pubsub.hottub.js"></script>
     </body>
 </html>
